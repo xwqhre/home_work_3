@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Collections;
 
+import static java.util.Collections.checkedList;
 import static java.util.Collections.swap;
 
 public class zU {
@@ -23,12 +24,27 @@ public class zU {
         System.out.println("average  " + num1);
         System.out.println("count  " + num);
         System.out.println("average/count " + num1 / num);
+
+        System.out.println("-------------");
+
+        int[] array = {-7, -4, -2, 2, 3, 6, 8};
+        System.out.print(Arrays.toString(array));
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < array[i - 1]) {
+                swap(Collections.singletonList(array), i, i - 1);
+                for (int z = 1; (z - 1) >= 0; z--) {
+                    if (array[z] < array[z - 1]) {
+                        swap(Collections.singletonList(array), z, z - 1);
+                    } else {
+                        break;
+                    }
+                }
+
+            }
+        }
+        System.out.println(Arrays.toString(array));
+
     }
-
-    int[] array = {-7, -4, -2, 2, 3, 6, 8};
-            System.out.println(Arrays.toString(array));
-
-}
-
+    }
 
 
